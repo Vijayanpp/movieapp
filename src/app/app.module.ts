@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { SharedService} from './sharedservice.service';
+import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    LoginComponent
+    LoginComponent,
+    AddpostsampleComponent
   ],
   imports: [
    BrowserModule,

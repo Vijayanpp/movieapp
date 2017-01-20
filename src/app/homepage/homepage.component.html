@@ -1,4 +1,4 @@
-<header class="header mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+<!-- <header class="header mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
     <div class="mdl-layout__header-row titlebar">
       <h3 class="logo">Sample application</h3>
       <button id="sign-out-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect" routerLink="/login" *ngIf='!sharedService.sharedvalue.signin' routerLinkActive="active"><i class="material-icons">account_circle</i> Sign In</button>
@@ -10,7 +10,7 @@
 
 
     <!-- Navigation Bar -->
-    <div class="tab mdl-layout__header-row mdl-color--light-blue-600">
+   <!--  <div class="tab mdl-layout__header-row mdl-color--light-blue-600">
       <div class="mdl-tab">
         <div id="menu-recent" class="mdl-layout__tab is-active mdl-button mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">new_releases</i> Recent
@@ -26,8 +26,136 @@
         </button>
       </div>
     </div>
-  </header>
+  </header> -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <span class="android-title mdl-layout-title">
+            <img class="android-logo-image" src="assets/images/android-logo.png">
+          </span>
+          <!-- Add spacer, to align navigation to the right in desktop -->
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+          <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search-field">
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Phones</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Tablets</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Wear</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">TV</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Auto</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">One</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Play</a>
+            </nav>
+          </div>
+          <span class="android-mobile-title mdl-layout-title">
+            <img class="android-logo-image" src="assets/images/android-logo.png">
+          </span>
+          <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+            <li class="mdl-menu__item">5.0 Lollipop</li>
+            <li class="mdl-menu__item">4.4 KitKat</li>
+            <li disabled class="mdl-menu__item">4.3 Jelly Bean</li>
+            <li class="mdl-menu__item">Android History</li>
+          </ul>
+        </div>
+      </div>
 
-   <main class="mdl-layout__content mdl-color--grey-100">
+      <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          <img class="android-logo-image" src="assets/images/android-logo-white.png">
+        </span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Phones</a>
+          <a class="mdl-navigation__link" href="">Tablets</a>
+          <a class="mdl-navigation__link" href="">Wear</a>
+          <a class="mdl-navigation__link" href="">TV</a>
+          <a class="mdl-navigation__link" href="">Auto</a>
+          <a class="mdl-navigation__link" href="">One</a>
+          <a class="mdl-navigation__link" href="">Play</a>
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">Versions</span>
+          <a class="mdl-navigation__link" href="">Lollipop 5.0</a>
+          <a class="mdl-navigation__link" href="">KitKat 4.4</a>
+          <a class="mdl-navigation__link" href="">Jelly Bean 4.3</a>
+          <a class="mdl-navigation__link" href="">Android history</a>
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">Resources</span>
+          <a class="mdl-navigation__link" href="">Official blog</a>
+          <a class="mdl-navigation__link" href="">Android on Google+</a>
+          <a class="mdl-navigation__link" href="">Android on Twitter</a>
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">For developers</span>
+          <a class="mdl-navigation__link" href="">App developer resources</a>
+          <a class="mdl-navigation__link" href="">Android Open Source Project</a>
+          <a class="mdl-navigation__link" href="">Android SDK</a>
+        </nav>
+      </div>
+
+
+   <main class="android-content mdl-layout__content mdl-color--grey-100 ">
+     <a name="top"></a>
+    <div class="android-be-together-section mdl-typography--text-center">
+          <div class="logo-font android-slogan">be together. not the same.</div>
+          <div class="logo-font android-sub-slogan">welcome to android... be yourself. do your thing. see what's going on.</div>
+          <div class="logo-font android-create-character">
+            <a href=""><img src="assets/images/andy.png"> create your android character</a>
+          </div>
+
+          <a href="#screens">
+            <button class="android-fab mdl-button mdl-button--colored mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">expand_more</i>
+            </button>
+          </a>
+      </div>
+
   
-   </main>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col">
+  	
+  	<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Inbox</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Trash</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Spam</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+        </nav>
+
+  </div>
+  <div class="mdl-cell mdl-cell--8-col">
+  	<div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+    <h2 class="mdl-card__title-text">Update</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Aenan convallis.
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      View Updates
+    </a>
+  </div>
+</div>
+
+  </div>
+  
+</div>
+</main>
+
+</div>
