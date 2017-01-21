@@ -11,12 +11,12 @@
               <form id="message-form" action="#" [formGroup]="postForm" (ngSubmit)="submitPost(postForm)">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="text" id="new-post-title" formControlName="title">
-                  <label class="mdl-textfield__label" for="new-post-title">Post title...</label>
+                  <label class="mdl-textfield__label" for="new-post-title">Movie Title</label>
                 </div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <textarea class="mdl-textfield__input" rows="3" id="new-post-message" formControlName="message"></textarea>
-                  <label class="mdl-textfield__label" for="new-post-message">Post message...</label>
-                </div>
+                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="new-post-title" formControlName="imagepath">
+                  <label class="mdl-textfield__label" for="new-post-title">Movie Image</label>
+                </div>                
                 <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
                   Add post
                 </button>

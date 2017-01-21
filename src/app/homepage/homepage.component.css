@@ -1,12 +1,14 @@
 
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
+.adbcd-card-square.mdl-card {
+   width:100%;
+  min-height: 320px;
 }
-.demo-card-square > .mdl-card__title {
+
+.adbcd-card-square > .mdl-card__title {
   color: #fff;
-  background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+  height:200px
+
+  
 }
 
 
@@ -16,7 +18,37 @@
     flex-grow: 1;
 }
 
-.demo-layout .demo-navigation .mdl-navigation__link {
+.mdl-badge[data-badge]:after {
+    
+    background: rgb(119, 193, 89)!important;
+    color: rgb(255, 255, 255)!important;
+}
+.ion {
+    background: #eee;
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.7s ease-in-out;
+    cursor: pointer;
+    margin-right:10px
+}
+.padding span
+{
+    margin-right:20px;
+    position: relative;
+    top: -7px;
+}
+.padding
+{
+    padding:10px;
+}
+.mdl-card__supporting-text h1
+{
+    font-size:21px!important;
+    color:#000;
+    font-weight:bold!important
+}
+
+.adbcd-layout .adbcd-navigation .mdl-navigation__link {
     display: -webkit-flex !important;
     display: -ms-flexbox !important;
     display: flex !important;
@@ -30,7 +62,7 @@
     font-weight: 500;
 }
 
-.demo-navigation .mdl-navigation__link .material-icons {
+.adbcd-navigation .mdl-navigation__link .material-icons {
     font-size: 24px;
     color: rgba(255, 255, 255, 0.56);
     margin-right: 32px;

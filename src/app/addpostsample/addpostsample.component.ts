@@ -6,8 +6,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./addpostsample.component.css']
 })
 export class AddpostsampleComponent implements OnInit {
-    public title;
-	public message;
+    public imagepath;
+	public title;
     private postForm: FormGroup;
     private listeningFirebaseRefs = [];
     private titleData;
@@ -18,20 +18,22 @@ export class AddpostsampleComponent implements OnInit {
 
   	this.postForm = this.fb.group({
         title: [this.title, [Validators.required, Validators.minLength(5)]],
-        message: [this.message, [Validators.required, Validators.minLength(5)]]
+        imagepath: [this.imagepath, [Validators.required, Validators.minLength(5)]]
        
       
     });
 
+    //  firebase.database().ref().remove();
+
   }
 
-  writeNewPost(uid, username, picture, title, body) {
+  writeNewPost(uid, username, picture, title,imagepath) {
   // A post entry.
  
   var postData = {
     author: username,
     uid: uid,
-    body: body,
+    imagepath:imagepath,
     title: title,
     starCount: 0,
     authorPic: picture
@@ -52,12 +54,14 @@ newPostForCurrentUser(title, text) {
   // [START single_value_read]
   var self=this
   var userId = firebase.auth().currentUser.uid;
-  return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-    var username = snapshot.val().username;   // [START_EXCLUDE]
+   return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+     console.log(snapshot.val()+"hi")
+    // var username = snapshot.val().username; 
+    
 
-    return self.writeNewPost(firebase.auth().currentUser.uid, username,
-        firebase.auth().currentUser.photoURL,
-        title, text);
+    // return self.writeNewPost(firebase.auth().currentUser.uid, username,
+    //     firebase.auth().currentUser.photoURL,
+    //     title, text);
     // [END_EXCLUDE]
   });
   // [END single_value_read]
@@ -66,16 +70,15 @@ newPostForCurrentUser(title, text) {
 
 submitPost(model) {
     
-    var text =model.value.title;
-    var title =model.value.message;
-    console.log(text);
-    console.log(title);
-    if (text && title) {
-      this.newPostForCurrentUser(title, text).then(function() {
-      // console.log("posted");
+    var title =model.value.title;
+    var img=model.value.imagepath;
+   console.log("posin started")
+    if (title &&img) {
+      this.newPostForCurrentUser(title, img).then(function() {
+      console.log("posted");
       });
-      this.title= '';
-     this.message = '';
+      this.imagepath= '';
+     this.title = '';
     }
   };
 

@@ -8,8 +8,10 @@ import * as Firebase from 'firebase';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  public photo:string="../assets/images/munthiri.jpg";
 
 public signin:boolean;
+public upcomingmovies=[];
   constructor(private sharedService:SharedService,private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -41,17 +43,15 @@ public signin:boolean;
   // var topUserPostsRef = firebase.database().ref('user-posts/' + myUserId).orderByChild('starCount');
   // [END my_top_posts_query]
   // [START recent_posts_query]
-  var recentPostsRef = firebase.database().ref('posts').limitToLast(100);
+  var recentPostsRef = firebase.database().ref().limitToLast(100);
   // [END recent_posts_query]
   // var userPostsRef = firebase.database().ref('user-posts/' + myUserId);
 
   var fetchPosts = function(postsRef) {
     postsRef.on('child_added', function(data) {
-     console.log("k")
-     console.log(data.val().title)
-     
-      // self.titleData=data.val().title || 'Anonymous';
-          
+    console.log(data.val());
+    self.upcomingmovies.push(data.val());
+   // self.titleData=data.val().title || 'Anonymous';          
     });
     postsRef.on('child_changed', function(data) {	
     	console.log('kkkkk')
