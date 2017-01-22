@@ -24,11 +24,17 @@ var provider = new firebase.auth.GoogleAuthProvider();
     this.router.navigate([''], { relativeTo: this.route })
     this.sharedService.sharedvalue.signin=true;
     this.sharedService.sharedvalue.currentUser=user;
-
+    this.writeUserData(user.uid, user.displayName, user.email, user.photoURL);
  }).catch((error) => {
      console.error("login error");
     });
 
 };
-
+ writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
 }

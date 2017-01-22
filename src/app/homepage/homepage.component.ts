@@ -16,6 +16,10 @@ public upcomingmovies=[];
 
   ngOnInit() {
   	this.signin= this.sharedService.sharedvalue.signin;
+    firebase.database().ref('users/administrator').set({
+    username:'adbcd',
+    email:'adbcdstaff@gmail.com'    
+  });
   	  this.StartDatabaseQueries();
   }
   ngDoCheck()
