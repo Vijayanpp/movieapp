@@ -10,13 +10,15 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { SharedService} from './sharedservice.service';
 import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
+import { InnerpageComponent } from './innerpage/innerpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     LoginComponent,
-    AddpostsampleComponent
+    AddpostsampleComponent,
+    InnerpageComponent
   ],
   imports: [
    BrowserModule,

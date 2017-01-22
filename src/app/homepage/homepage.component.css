@@ -11,6 +11,17 @@
   
 }
 
+a {
+    color: rgb(154, 154, 154);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 10px;
+    transition:all 0.2s easing;
+}
+a:hover
+{
+color:#000;
+}
 
 .demo-navigation {
     -webkit-flex-grow: 1;

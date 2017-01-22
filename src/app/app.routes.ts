@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
+import { InnerpageComponent } from './innerpage/innerpage.component';
 // import { MovieComponent } from './movie/movie.component';
 // import { GenresComponent } from './genres/genres.component';
 // import { UpcomingComponent } from './upcoming/upcoming.component';
@@ -17,7 +18,8 @@ import { AddpostsampleComponent } from './addpostsample/addpostsample.component'
 export const appRoutes: Routes = [
      {path:'',component:HomepageComponent},
      {path:'login',component:LoginComponent},
-     {path:'addmoviedata',component:AddpostsampleComponent}
+     {path:'addmoviedata',component:AddpostsampleComponent},
+     {path:'detail/:id',component:InnerpageComponent}   
     // {path: 'movie/:id', component: MovieComponent},
     // {path: 'tv/:id', component: SerieComponent},
     // {path: 'actor/:id', component: ActorComponent},

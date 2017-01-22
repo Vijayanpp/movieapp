@@ -38,6 +38,8 @@ export class AddpostsampleComponent implements OnInit {
     private cameraImg:string;
     private listeningFirebaseRefs = [];
     private titleData;
+    private releasedate;
+    private category;
 
   constructor(private fb: FormBuilder) { }
 
@@ -71,7 +73,9 @@ export class AddpostsampleComponent implements OnInit {
         camera: [this.camera, [Validators.required, Validators.minLength(5)]],
         cameraImg: [this.cameraImg, [Validators.required, Validators.minLength(5)]],
         overview: [this.overview, [Validators.required, Validators.minLength(5)]],
-        rating: [this.rating, [Validators.required, Validators.minLength(5)]]
+        rating: [this.rating, [Validators.required, Validators.minLength(5)]],
+        releasedate: [this.releasedate, [Validators.required, Validators.minLength(5)]],
+        category: [this.category, [Validators.required, Validators.minLength(5)]]
         
        
       
@@ -121,7 +125,35 @@ newPostForCurrentUser(title, text) {
   // [END single_value_read]
 };
 
- writeNewMovieData(username,uid,posttype,postindustry,title,imagepath,hero,heroImg,heroine,heroineImg,director,directorImg,musicdirector,musicdirectorImg,editor,editorImg,camera,cameraImg,distribution,productioncompany,overview,screenplay,screenplayImg,rating,actors,actorsImg)
+
+
+createObject(d1,d2)
+{
+let array1=d1.split(",");
+let array2=d2.split(",");
+
+let k=[];
+var self=this;
+for(let i=0;i<array1.length;i++)
+{
+let r={"name":array1[i],"imgUrl":array2[i]}
+k.push(r)
+}
+return k;
+}
+createArray(d1)
+{
+ let array1=d1.split(",");
+ let k=[];
+ for(let i=0;i<array1.length;i++)
+{
+
+k.push(array1[i])
+}
+return k;
+}
+
+ writeNewMovieData(username,uid,posttype,postindustry,title,imagepath,releasedate,category,hero,heroImg,heroine,heroineImg,director,musicdirector,editor,camera,distribution,productioncompany,overview,screenplay,rating,actors,trailers,musicvideos)
 {
   var postData = {
     author: username,
@@ -130,6 +162,8 @@ newPostForCurrentUser(title, text) {
     title: title,
     starCount: 0,
     comment:0,
+    releasedate:releasedate,
+    category:category,
     posttype:posttype,
     postindustry:postindustry,
     hero:hero,
@@ -137,24 +171,17 @@ newPostForCurrentUser(title, text) {
     heroine:heroine,
     heroineImg:heroineImg,
     director:director,
-    directorImg:directorImg,
     musicdirector:musicdirector,
-    musicdirectorImg:musicdirectorImg,
     eidtor:editor,
-    editorImg:editorImg,
     screenplay:screenplay,
-    screenplayImg:screenplayImg,
-    camera:camera,
-    cameraImg:cameraImg,
+    camera:camera,   
     distribution:distribution,
     productioncompany:productioncompany,
     rating:rating,
     overview:overview,
     actors:actors,
-    actorsImg:actorsImg
-
-
-
+    trailers:trailers,
+    musicvideos:musicvideos
   };
 
   // Get a key for a new Post.
@@ -164,10 +191,7 @@ newPostForCurrentUser(title, text) {
   var updates = {};
   updates['/posts/' +posttype+"/"+postindustry+"/"+newPostKey] = postData;
   return firebase.database().ref().update(updates);
-
 }
-
-
 submitPost(model) {
     var posttype=model.value.posttype;
     var postindustry=model.value.postindustry;
@@ -177,37 +201,27 @@ submitPost(model) {
     var heroImg=model.value.heroImg;
     var heroine=model.value.heroine;
     var heroineImg=model.value.heroineImg;
-    var director=model.value.director;
-    var directorImg=model.value.directorImg
-    var musicdirector=model.value.musicdirector;
-    var musicdirectorImg=model.value.musicdirectorImg;
-    var editor=model.value.editor;
-    var editorImg=model.value.editorImg;
-    var trailers=model.value.trailers;
-    var musicvideos=model.value.musicvideos;
-    var screenplay=model.value.screenplay;
-    var screenplayImg=model.value.screenplayImg;
+    var director=this.createObject(model.value.director,model.value.directorImg);
+    var musicdirector=this.createObject(model.value.musicdirector,model.value.musicdirectorImg);
+    var editor=this.createObject(model.value.editor,model.value.editorImg);    
+    var trailers=this.createArray(model.value.trailers);
+    var musicvideos=this.createArray(model.value.musicvideos);
+    var screenplay=this.createObject(model.value.screenplay,model.value.screenplayImg)
     var rating=model.value.rating;
     var overview=model.value.overview;
-    var camera=model.value.camera;
-    var cameraImg=model.value.cameraImg;
-    var actors=model.value.actors;
-    var actorsImg=model.value.actorsImg
+    var camera=this.createObject(model.value.camera,model.value.cameraImg)
+    var actors=this.createObject(model.value.actors,model.value.actorsImg)
     var productioncompany=model.value.productioncompany;
     var distribution=model.value.distribution;
+    var releasedate=model.value.releasedate;
+    var category=model.value.category;
    
    console.log("posin started")
-    if (title &&img) {
-      
-
-      var self=this
+  if (title &&img) {   
   var userId = firebase.auth().currentUser.uid;
   var username="admin"
-  this.writeNewMovieData(username,userId,posttype,postindustry,title,img,hero,heroImg,heroine,heroineImg,director,directorImg,musicdirector,musicdirectorImg,editor,editorImg,camera,cameraImg,distribution,productioncompany,overview,screenplay,screenplayImg,rating,actors,actorsImg)
-  
-
-     
-    }
+  this.writeNewMovieData(username,userId,posttype,postindustry,title,img,releasedate,category,hero,heroImg,heroine,heroineImg,director,musicdirector,editor,camera,distribution,productioncompany,overview,screenplay,rating,actors,trailers,musicvideos);
+  }
   };
 
 
