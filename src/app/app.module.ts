@@ -11,6 +11,13 @@ import { LoginComponent } from './login/login.component';
 import { SharedService} from './sharedservice.service';
 import { AddpostsampleComponent } from './addpostsample/addpostsample.component';
 import { InnerpageComponent } from './innerpage/innerpage.component';
+import { NowrunningComponent } from './nowrunning/nowrunning.component';
+import { ReviewsComponent } from './reviews/reviews.component';
+import { TrailersComponent } from './trailers/trailers.component';
+import { MusicvideosComponent } from './musicvideos/musicvideos.component';
+import { OffersComponent } from './offers/offers.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +25,14 @@ import { InnerpageComponent } from './innerpage/innerpage.component';
     HomepageComponent,
     LoginComponent,
     AddpostsampleComponent,
-    InnerpageComponent
+    InnerpageComponent,
+    NowrunningComponent,
+    ReviewsComponent,
+    TrailersComponent,
+    MusicvideosComponent,
+    OffersComponent,
+    AboutusComponent,
+    ContactusComponent
   ],
   imports: [
    BrowserModule,

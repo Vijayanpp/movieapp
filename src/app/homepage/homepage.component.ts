@@ -28,16 +28,7 @@ public upcomingmovies=[];
   	console.log(this.signin);
   }
 
-  logout()
-  {
-  	console.log("click on the logout")
-  	firebase.auth().signOut().then(()=>{
-  	this.router.navigate([''], { relativeTo: this.route })
-    this.sharedService.sharedvalue.signin=false;
-    this.sharedService.sharedvalue.currentUser=null
-}
-)
-  }
+ 
 
 
  LikethePost(postRef, uid) {
@@ -71,8 +62,9 @@ public upcomingmovies=[];
 
 like(id)
 {
- console.log(id)
+ 
    var uid = firebase.auth().currentUser.uid;
+   console.log(firebase.auth().currentUser);
    var recentPostsRef = firebase.database().ref('posts/Movie/Mollywood/'+id);
    console.log(recentPostsRef)
    this.LikethePost(recentPostsRef,uid)
@@ -90,14 +82,16 @@ like(id)
 
   var fetchPosts = function(postsRef) {
  postsRef.on('child_added', function(data) {
+  
  var obj=data.val();
+
  obj.id=data.key;
  self.upcomingmovies.push(obj);
      // self.titleData=data.val().title || 'Anonymous';          
     });
     postsRef.on('child_changed', function(data) {	
   var object=data.val();
- object.id=data.key;
+  object.id=data.key;
    
   var array= self.upcomingmovies.filter((obj,index)=>
   {
