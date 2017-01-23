@@ -15,12 +15,13 @@ public upcomingmovies=[];
   constructor(private sharedService:SharedService,private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-  	this.signin= this.sharedService.sharedvalue.signin;
-  //   firebase.database().ref('users/administrator').set({
+  	  //   firebase.database().ref('users/administrator').set({
   //   username:'adbcd',
   //   email:'adbcdstaff@gmail.com'    
   // });
-  	  this.StartDatabaseQueries();
+   this.StartDatabaseQueries();
+  
+  	
   }
   ngDoCheck()
   {
@@ -29,7 +30,21 @@ public upcomingmovies=[];
   }
 
  
+checkAuthState()
+  {
+     var self=this;
+    firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+ 
+    self.StartDatabaseQueries();
 
+  } else {
+    
+   
+
+  }
+});
+  }
 
  LikethePost(postRef, uid) {
   
@@ -73,13 +88,11 @@ like(id)
   // [START my_top_posts_query]
   // var myUserId = firebase.auth().currentUser.uid;
   var self=this;
-  // var topUserPostsRef = firebase.database().ref('user-posts/' + myUserId).orderByChild('starCount');
-  // [END my_top_posts_query]
-  // [START recent_posts_query]
+  
   var recentPostsRef = firebase.database().ref('posts/Movie/Mollywood').limitToLast(100);
-  // [END recent_posts_query]
-  // var userPostsRef = firebase.database().ref('user-posts/' + myUserId);
+  
 
+ 
   var fetchPosts = function(postsRef) {
  postsRef.on('child_added', function(data) {
   
