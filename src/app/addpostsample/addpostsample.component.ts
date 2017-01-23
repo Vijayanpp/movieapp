@@ -129,6 +129,9 @@ newPostForCurrentUser(title, text) {
 
 createObject(d1,d2)
 {
+if(d1!=null&&d2!=null)
+{
+  console.log('kdkk')
 let array1=d1.split(",");
 let array2=d2.split(",");
 
@@ -140,9 +143,20 @@ let r={"name":array1[i],"imgUrl":array2[i]}
 k.push(r)
 }
 return k;
+
+}
+else
+{
+  return null;
+}
 }
 createArray(d1)
 {
+  console.log("keri")
+  if(d1!=null)
+  {
+
+    console.log('2 mathum keri')
  let array1=d1.split(",");
  let k=[];
  for(let i=0;i<array1.length;i++)
@@ -151,6 +165,12 @@ createArray(d1)
 k.push(array1[i])
 }
 return k;
+}
+else
+{
+  return null;
+}
+
 }
 
  writeNewMovieData(username,uid,posttype,postindustry,title,imagepath,releasedate,category,hero,heroImg,heroine,heroineImg,director,musicdirector,editor,camera,distribution,productioncompany,overview,screenplay,rating,actors,trailers,musicvideos)

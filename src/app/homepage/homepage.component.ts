@@ -16,10 +16,10 @@ public upcomingmovies=[];
 
   ngOnInit() {
   	this.signin= this.sharedService.sharedvalue.signin;
-    firebase.database().ref('users/administrator').set({
-    username:'adbcd',
-    email:'adbcdstaff@gmail.com'    
-  });
+  //   firebase.database().ref('users/administrator').set({
+  //   username:'adbcd',
+  //   email:'adbcdstaff@gmail.com'    
+  // });
   	  this.StartDatabaseQueries();
   }
   ngDoCheck()
@@ -40,6 +40,43 @@ public upcomingmovies=[];
   }
 
 
+ LikethePost(postRef, uid) {
+  
+  postRef.transaction(function(post) {
+    
+    if (post) {
+  
+      if (post.stars && post.stars[uid]) {
+        post.starCount--;
+        post.stars[uid] = null;
+      } else {
+        post.starCount++;
+        if (!post.stars) {
+          post.stars = {};
+        }
+        post.stars[uid] = true;
+      }
+    }
+
+   // postRef.on('value', function(snapshot) {
+
+    
+
+   // })
+
+
+    return post;
+  });
+}
+
+like(id)
+{
+ console.log(id)
+   var uid = firebase.auth().currentUser.uid;
+   var recentPostsRef = firebase.database().ref('posts/Movie/Mollywood/'+id);
+   console.log(recentPostsRef)
+   this.LikethePost(recentPostsRef,uid)
+}
   StartDatabaseQueries() {
   // [START my_top_posts_query]
   // var myUserId = firebase.auth().currentUser.uid;
@@ -47,18 +84,29 @@ public upcomingmovies=[];
   // var topUserPostsRef = firebase.database().ref('user-posts/' + myUserId).orderByChild('starCount');
   // [END my_top_posts_query]
   // [START recent_posts_query]
-  var recentPostsRef = firebase.database().ref().limitToLast(100);
+  var recentPostsRef = firebase.database().ref('posts/Movie/Mollywood').limitToLast(100);
   // [END recent_posts_query]
   // var userPostsRef = firebase.database().ref('user-posts/' + myUserId);
 
   var fetchPosts = function(postsRef) {
-    postsRef.on('child_added', function(data) {
-    console.log(data.val());
-    self.upcomingmovies.push(data.val());
-   // self.titleData=data.val().title || 'Anonymous';          
+ postsRef.on('child_added', function(data) {
+ var obj=data.val();
+ obj.id=data.key;
+ self.upcomingmovies.push(obj);
+     // self.titleData=data.val().title || 'Anonymous';          
     });
     postsRef.on('child_changed', function(data) {	
-    	console.log('kkkkk')
+  var object=data.val();
+ object.id=data.key;
+   
+  var array= self.upcomingmovies.filter((obj,index)=>
+  {
+      if(obj.id==data.key)
+        {
+          self.upcomingmovies.splice(index,1,object);
+        }
+  })
+
 		
     });
     postsRef.on('child_removed', function(data) {
