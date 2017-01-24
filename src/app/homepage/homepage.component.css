@@ -59,6 +59,23 @@ color:#000;
     font-weight:bold!important
 }
 
+.share {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 32px;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 32px;
+    width: 32px;
+    padding: 0;
+    overflow: hidden;
+    color: inherit;
+    line-height: normal;
+    background: #fff;
+    padding: 24px;
+}
+
+
 .adbcd-layout .adbcd-navigation .mdl-navigation__link {
     display: -webkit-flex !important;
     display: -ms-flexbox !important;

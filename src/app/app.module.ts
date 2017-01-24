@@ -18,6 +18,7 @@ import { MusicvideosComponent } from './musicvideos/musicvideos.component';
 import { OffersComponent } from './offers/offers.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { NewspageComponent } from './newspage/newspage.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ContactusComponent } from './contactus/contactus.component';
     MusicvideosComponent,
     OffersComponent,
     AboutusComponent,
-    ContactusComponent
+    ContactusComponent,
+    NewspageComponent
   ],
   imports: [
    BrowserModule,

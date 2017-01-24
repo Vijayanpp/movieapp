@@ -152,11 +152,11 @@ else
 }
 createArray(d1)
 {
-  console.log("keri")
+  
   if(d1!=null)
   {
 
-    console.log('2 mathum keri')
+   
  let array1=d1.split(",");
  let k=[];
  for(let i=0;i<array1.length;i++)

@@ -1,0 +1,94 @@
+<!--<div class='sidebar mdl-cell mdl-cell--2-col'>
+              <div class='img-content' *ngIf="movie">
+        <img src="{{movie.heroImg}}"/>
+</div></div>
+
+<div class="mdl-grid portfolio-max-width" *ngIf="movie">
+              
+              
+
+                <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-content">
+                    <img src="{{movie.imagepath}}" *ngIf="movie.imagepath"/>
+                <div class="mdl-card__menu">
+   <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">share</i>
+    </button>
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">favorite_border</i>
+    </button>
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">comment</i>
+    </button>
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">add</i>
+    </button>
+  </div>
+
+                </div>
+
+                 <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp ">
+                   <h1>{{movie.title}}</h1>
+                   <div [innerHTML]="movie.overview"></div>
+                </div>
+
+                 <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents"  *ngIf="movie.heroImg">
+                     <img src="{{movie.heroImg}}" alt=""/>
+                     <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{movie.hero}}</span>
+                     </div>
+                  </div>
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngIf="movie.heroineImg">
+                       
+                     <img src="{{movie.heroineImg}}" alt=""/>
+                     <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{movie.heroine}}</span>
+                     </div>
+                       
+                  </div>
+                   
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngFor="let dir of movie.director">
+                       <img src="{{dir.imgUrl}}" alt=""/>
+                       <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{dir.name}}</span>
+                     </div>
+                  </div>
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngFor="let musicdirector of movie.musicdirector">
+                  <img src="{{musicdirector.imgUrl}}" alt=""/>
+                  <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{musicdirector.name}}</span>
+                     </div>
+                  </div>
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngFor="let screenplay of movie.screenplay">
+                    <img src="{{screenplay.imgUrl}}" alt=""/>
+                    <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{screenplay.name}}</span>
+                     </div>
+                  </div>
+
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngFor="let actors of movie.actors">
+                    <img src="{{actors.imgUrl}}" alt=""/>
+                    <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{actors.name}}</span>
+                     </div>
+                  </div>
+                   
+
+
+
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp video-container" *ngFor="let music of musicvideos" [innerHTML]="music">
+                    
+                </div>
+                
+                 
+
+               <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp video-container" *ngFor="let trailer of trailers" [innerHTML]="trailer">
+                    
+                </div>        
+               
+               
+                             
+            </div>
+
+
+-->
+
