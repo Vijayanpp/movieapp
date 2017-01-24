@@ -1,10 +1,15 @@
+<div class='sidebar mdl-cell mdl-cell--2-col'>
+              <div class='img-content' *ngIf="movie">
+        <img src="{{movie.heroImg}}"/>
+</div></div>
 
-<section class="hero hero-slider-wrapper" *ngIf="movie">
-            <div class="hero-slider">
-                <div class="slide"><img src="{{movie.imagepath}}" alt></div>
-              </div>
+<div class="mdl-grid portfolio-max-width" *ngIf="movie">
+              
+              
 
-     <div class="mdl-card__menu">
+                <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-content">
+                    <img src="{{movie.imagepath}}" *ngIf="movie.imagepath"/>
+                <div class="mdl-card__menu">
    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
       <i class="material-icons">share</i>
     </button>
@@ -19,593 +24,70 @@
     </button>
   </div>
 
-            <div class="announcement-wrapper">
-                <div class="announcement">
-                   <div class="couple-name">
-                        <h1>{{movie.title}}</h1>
-                    </div>
-                    <span class="date ">{{movie.releasedate}}</span>
-                    <span class="vector"></span>
                 </div>
+
+                 <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp ">
+                   <h1>{{movie.title}}</h1>
+                   <div [innerHTML]="movie.overview"></div>
+                </div>
+
+                 <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents"  *ngIf="movie.heroImg">
+                     <img src="{{movie.heroImg}}" alt=""/>
+                     <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{movie.hero}}</span>
+                     </div>
+                  </div>
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngIf="movie.heroineImg">
+                       
+                     <img src="{{movie.heroineImg}}" alt=""/>
+                     <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{movie.heroine}}</span>
+                     </div>
+                       
+                  </div>
+                   
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngFor="let dir of movie.director">
+                       <img src="{{dir.imgUrl}}" alt=""/>
+                       <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{dir.name}}</span>
+                     </div>
+                  </div>
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngFor="let musicdirector of movie.musicdirector">
+                  <img src="{{musicdirector.imgUrl}}" alt=""/>
+                  <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{musicdirector.name}}</span>
+                     </div>
+                  </div>
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngFor="let screenplay of movie.screenplay">
+                    <img src="{{screenplay.imgUrl}}" alt=""/>
+                    <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{screenplay.name}}</span>
+                     </div>
+                  </div>
+
+                   <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-contents" *ngFor="let actors of movie.actors">
+                    <img src="{{actors.imgUrl}}" alt=""/>
+                    <div class="mdl-card__actions">
+                     <span class="adb-card-image__filename">{{actors.name}}</span>
+                     </div>
+                  </div>
+                   
+
+
+
+                <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp video-container" *ngFor="let music of musicvideos" [innerHTML]="music">
+                    
+                </div>
+                
+                 
+
+               <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp video-container" *ngFor="let trailer of trailers" [innerHTML]="trailer">
+                    
+                </div>        
+               
+               
+                             
             </div>
-        </section>
-        <!-- end of hero slider -->      
 
-
-      
-                                          
-        <!-- start of important-people -->
-        <section class="important-people section-padding" id="people">
-            <div class="container">
-                <div class="row section-title">
-                    <div class="title-box">
-                        <div class="double-line double-line-top">
-                            <i class="fi flaticon-social"></i>
-                            <i class="fi flaticon-social"></i>
-                        </div>
-                        <h2>Important people</h2>
-                        <div class="double-line double-line-bottom"></div>
-                    </div>
-                </div> <!-- end of section-title -->
-
-                <div class="row">
-                    <div class="col col-md-6 " >
-                        <div class="groomsmen">
-                            <h3>Groomsmen</h3>
-                            <div class="groomsmen-slider">
-                                <div class="item">
-                                    <div class="row">
-                                        <div class="col col-xs-6">
-                                            <div class="box">
-                                                
-                                                    <img src="{{movie.heroImg}}" class="img img-responsive" alt>
-                                                    <div class="details">
-                                                        <div>
-                                                            <h5>{{movie.hero}}</h5>
-                                                            <span>Hero</span>
-                                                            <span class="icon"><i class="fa fa-search"></i></span>
-                                                        </div>
-                                                    </div>
-                                              
-                                            </div>
-                                        </div>
-
-                                         <div class="col col-xs-6">
-                                            <div class="box">
-                                                
-                                                    <img src="{{movie.heroineImg}}" class="img img-responsive" alt>
-                                                    <div class="details">
-                                                        <div>
-                                                            <h5>{{movie.heroine}}</h5>
-                                                            <span>Heroine</span>
-                                                            <span class="icon"><i class="fa fa-search"></i></span>
-                                                        </div>
-                                                    </div>
-                                              
-                                            </div>
-                                        </div>
-
-                                        <div class="col col-xs-6" *ngFor="let actor of movie.actors">
-                                            <div class="box">
-                                                
-                                                    <img src="{{actor.imgUrl}}" class="img img-responsive" alt>
-                                                    <div class="details">
-                                                        <div>
-                                                            <h5>{{actor.name}}</h5>
-                                                            <span>Actor</span>
-                                                            <span class="icon"><i class="fa fa-search"></i></span>
-                                                        </div>
-                                                    </div>
-                                              
-                                            </div>
-                                        </div>
-                                       
-                                       
-                                       
-                                    </div>
-                                </div>
-
-                                                        
-                            </div>
-                        </div> <!-- end of groomsmen -->
-                    </div> <!-- end of col -->
-
-
-                    <div class="col col-md-6  fadeInRightSlow" data--duration="2s">
-                        <div class="bridesmaids">
-                            <h3>Bridesmaids</h3>
-                            <div class="bridesmaids-slider">
-                                <div class="item">
-                                    <div class="row">
-                                        <div class="col col-xs-6" *ngFor="let dir of movie.directors">
-                                            <div class="box">
-                                                
-                                                    <img src="{{dir.imgUrl}}" class="img img-responsive" alt>
-                                                    <div class="details">
-                                                        <div>
-                                                            <h5>{{dir.name}}</h5>
-                                                            <span>Director</span>
-                                                            <span class="icon"><i class="fa fa-search"></i></span>
-                                                        </div>
-                                                    </div>                                               
-                                            </div>
-                                        </div> 
-
-                                         <div class="col col-xs-6" *ngFor="let musicdir of movie.musicdirector">
-                                            <div class="box">
-                                                
-                                                    <img src="{{musicdir.imgUrl}}" class="img img-responsive" alt>
-                                                    <div class="details">
-                                                        <div>
-                                                            <h5>{{musicdir.name}}</h5>
-                                                            <span>Music Director</span>
-                                                            <span class="icon"><i class="fa fa-search"></i></span>
-                                                        </div>
-                                                    </div>                                               
-                                            </div>
-                                        </div>
-
-                                        <div class="col col-xs-6" *ngFor="let screenplay of movie.screenplay">
-                                            <div class="box">
-                                                
-                                                    <img src="{{screenplay.imgUrl}}" class="img img-responsive" alt>
-                                                    <div class="details">
-                                                        <div>
-                                                            <h5>{{screenplay.name}}</h5>
-                                                            <span>Screenplay</span>
-                                                            <span class="icon"><i class="fa fa-search"></i></span>
-                                                        </div>
-                                                    </div>                                               
-                                            </div>
-                                        </div>
-                                         <div class="col col-xs-6" *ngFor="let producer of movie.producer">
-                                            <div class="box">                                                
-                                                    <img src="{{producer.imgUrl}}" class="img img-responsive" alt>
-                                                    <div class="details">
-                                                        <div>
-                                                            <h5>{{producer.name}}</h5>
-                                                            <span>Producer</span>
-                                                            <span class="icon"><i class="fa fa-search"></i></span>
-                                                        </div>
-                                                    </div>                                               
-                                            </div>
-                                        </div> 
-
-
-
-
-                                       
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div> <!-- end of bridesmaids -->
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </section>
-        <!-- end of important-people -->
-
-
-        <!-- start gallery -->
-        <section class="gallery section-padding parallax-flower" data-bg-image-top="assets/images/big-flower.png"  data-bg-image-bottom="assets/images/big-flower-bt.png" id="gallery">
-            <div class="container">
-                <div class="row section-title">
-                    <div class="title-box">
-                        <div class="double-line double-line-top">
-                            <i class="fi flaticon-social"></i>
-                            <i class="fi flaticon-social"></i>
-                        </div>
-                        <h2>Photo gallery</h2>
-                        <div class="double-line double-line-bottom"></div>
-                    </div>
-                </div> <!-- end of section-title -->
-
-                <div class="row gallery-boxes">
-                    <div class="col col-md-3 col-xs-6  fadeIn">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-1.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-1.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="0.2s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-2.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-2.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="0.4s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-3.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-3.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="0.6s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-4.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-4.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-5.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-5.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="0.2s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-6.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-6.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="0.4s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-7.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-7.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="0.6s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-8.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-8.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="0.8s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-9.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-9.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="1s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-10.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-10.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="1.2s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-11.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-11.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col col-md-3 col-xs-6  fadeIn" data--delay="1.4s">
-                        <div class="box">
-                            <a href="assets/images/gallery/big-photo/img-12.jpg" class="fancybox" data-fancybox-group="gallery">
-                                <img src="assets/images/gallery/img-12.jpg" class="img img-responsive" alt>
-                                <div class="fade-icon">
-                                    <span class="icon"><i class="fa fa-search"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end of container -->
-        </section>
-        <!-- end of gallery -->
-
-
-        <!-- start gift-registry -->
-        <section class="gift-registry section-padding" id="gift">
-            <div class="container">
-                <div class="row section-title">
-                    <div class="title-box">
-                        <div class="double-line double-line-top">
-                            <i class="fi flaticon-social"></i>
-                            <i class="fi flaticon-social"></i>
-                        </div>
-                        <h2>Gift registry</h2>
-                        <div class="double-line double-line-bottom"></div>
-                    </div>
-                </div> <!-- end of section-title -->
-
-                <div class="row text">
-                    <div class="col col-md-6 col-md-offset-3">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, cupiditate, repudiandae. A ab sit laboriosam quis distinctio dignissimos, nemo cum sed hic, deleniti maiores rem iste labore commodi perferendis cumque.</p>
-                    </div>
-                </div>
-            
-                <div class="row">
-                    <div class="clearfix">
-                        <div class="col col-sm-3 col-xs-6">
-                            <div>
-                                <img src="assets/images/gift-registry/img-1.jpg" class="img img-responsive" alt>
-                            </div>
-                        </div>
-                        <div class="col col-sm-3 col-xs-6">
-                            <div>
-                                <img src="assets/images/gift-registry/img-2.jpg" class="img img-responsive" alt>
-                            </div>
-                        </div>
-                        <div class="col col-sm-3 col-xs-6">
-                            <div>
-                                <img src="assets/images/gift-registry/img-3.jpg" class="img img-responsive" alt>
-                            </div>
-                        </div>
-                        <div class="col col-sm-3 col-xs-6">
-                            <div>
-                                <img src="assets/images/gift-registry/img-4.jpg" class="img img-responsive" alt>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end of container -->
-        </section>
-        <!-- end of gift-registry -->
-
-
-        <!-- start rsvp -->
-        <section class="rsvp section-padding parallax" data-bg-image="assets/images/rsvp-bg.jpg" id="rsvp">
-            <div class="container">
-                <div class="row section-title">
-                    <div class="title-box">
-                        <div class="double-line double-line-top">
-                            <i class="fi flaticon-social"></i>
-                            <i class="fi flaticon-social"></i>
-                        </div>
-                        <h2>Are you comming</h2>
-                        <div class="double-line double-line-bottom"></div>
-                    </div>
-                </div> <!-- end of section-title -->
-
-                <div class="row content">
-                    <div class="col col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="rsvp-form-wrapper">
-                            <div class="border-box">
-                                <i class="fi flaticon-clip-1 top-clip"></i>
-                                <i class="fi flaticon-clip-1 bottom-clip"></i>
-                                <div></div>
-                            </div>
-                            <h4>Please reserve <br>before December 16th, 2016</h4>
-                            <form id="rsvp-form" class="form form-inline" method="post">
-                                <div class="row">
-                                    <div class="form-group col col-sm-6">
-                                        <input type="text" class="form-control"  name="name" placeholder="Your Name" required>
-                                    </div>
-                                    <div class="form-group col col-sm-6">
-                                        <input type="email" class="form-control"  name="email" placeholder="Your Email" required>
-                                    </div>
-                                    <div class="form-group col col-sm-6">
-                                        <select name="guest" class="form-control">
-                                            <option disabled="disabled" selected>Number of Guest</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col col-sm-6">
-                                        <select name="events" class="form-control">
-                                            <option disabled="disabled" selected>I am attending</option>
-                                            <option>Al events</option>
-                                            <option>Wedding ceremony</option>
-                                            <option>Reception party</option>
-                                        </select>
-                                    </div>      
-
-                                    <div class="form-group col col-sm-12">
-                                        <textarea name="notes" class="form-control" placeholder="Your Message" ></textarea>
-                                    </div>      
-
-                                    <div class="form-group col col-sm-12">
-                                        <button type="submit" class="btn btn-default theme-btn">Send invitation</button>
-                                        <span id="loader"><img src="assets/images/rsvp-ajax-loader.gif" alt="Loader"></span>
-                                    </div>      
-                                    <div id="success">Thank you</div>
-                                    <div id="error"> Error occurred while sending email. Try again later. </div>
-                                </div>
-                            </form> <!-- end of form -->
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end of container -->
-        </section>
-        <!-- end of rsvp -->
-
-
-        <!-- start journal -->
-        <section class="journal section-padding flower-pattern">
-            <div class="container">
-                <div class="row section-title">
-                    <div class="title-box">
-                        <div class="double-line double-line-top">
-                            <i class="fi flaticon-social"></i>
-                            <i class="fi flaticon-social"></i>
-                        </div>
-                        <h2>From our journal</h2>
-                        <div class="double-line double-line-bottom"></div>
-                    </div>
-                </div> <!-- end of section-title -->
-
-
-                <div class="row">
-                    <div class="col col-md-10 col-md-offset-1">
-                        <div class="row journal-content">
-                            <div class="col col-xs-6">
-                                <a href="#" data-toggle="modal" data-target="#modal-1">
-                                    <img src="assets/images/journal/img-1.jpg" class="img img-responsive" alt>
-                                </a>
-                                <h4><a href="#" data-toggle="modal" data-target="#modal-1">Forever our love!</a></h4>
-                                <span>29 Nov 2016</span>
-
-                                <div class="modal fade bs-example-modal-lg" id="modal-1">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title">Forever our love! Never stop</h4>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <img src="assets/images/journal/img-1.jpg" class="img img-responsive" alt>
-                                                <span>29 Nov 2016</span>
-                                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
-                                                <p> When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col col-xs-6">
-                                <a href="#" data-toggle="modal" data-target="#modal-2">
-                                    <img src="assets/images/journal/img-2.jpg" class="img img-responsive" alt>
-                                </a>
-                                <h4><a href="#" data-toggle="modal" data-target="#modal-2">Plan For Honeymoon Trip.</a></h4>
-                                <span>05 Dec 2016</span>
-
-                                <div class="modal fade bs-example-modal-lg" id="modal-2">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title">Plan for honeymoon trip</h4>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <img src="assets/images/journal/img-2.jpg" class="img img-responsive" alt>
-                                                <span>05 Dec 2016</span>
-                                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
-                                                <p> When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col col-xs-6">
-                                <a href="#" data-toggle="modal" data-target="#modal-3">
-                                    <img src="assets/images/journal/img-3.jpg" class="img img-responsive" alt>
-                                </a>
-                                <h4><a href="#" data-toggle="modal" data-target="#modal-3">Wedding day tour plan.</a></h4>
-                                <span>10 Dec 2016</span>
-
-                                <div class="modal fade bs-example-modal-lg" id="modal-3">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title">Wedding day tour plan.</h4>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <img src="assets/images/journal/img-3.jpg" class="img img-responsive" alt>
-                                                <span>10 Dec 2016</span>
-                                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
-                                                <p> When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col col-xs-6">
-                                <a href="#" data-toggle="modal" data-target="#modal-4">
-                                    <img src="assets/images/journal/img-4.jpg" class="img img-responsive" alt>
-                                </a>
-                                <h4><a href="#" data-toggle="modal" data-target="#modal-4">Bachelor Party!</a></h4>
-                                <span>11 dec 2016</span>
-
-                                <div class="modal fade bs-example-modal-lg" id="modal-4">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h4 class="modal-title">Bachelor Party!</h4>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <img src="assets/images/journal/img-4.jpg" class="img img-responsive" alt>
-                                                <span>11 dec 2016</span>
-                                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents. I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.</p>
-                                                <p> When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-        </section>
-        <!-- end of journal -->
-
-
-        <!-- start footer -->
-        <footer class="section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
-                        <div class="box">
-                            <!-- frame -->
-                            <div class="left-top-border"></div> 
-                            <div class="right-top-border"></div> 
-                            <div class="bottom-right-border"></div> 
-                            <div class="bottom-left-border"></div> 
-                            <!-- frame -->
-
-                            <div class="love-birds  fadeInSlow"><i class="fi flaticon-birds-in-love"></i></div>
-                            <h2 class=" fadeInSlow">We are getting married</h2>
-                            <p class=" fadeInSlow">Michel &amp; Nevela</p>
-                            <span class=" fadeInSlow">30 Jun 2017</span>
-                        </div>
-                        <p class="copyright">&copy; Copyright 2016. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-      
 
 
