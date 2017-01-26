@@ -76,15 +76,22 @@ checkAuthState()
   });
 }
 
-like(id)
-{
- 
-   var uid = firebase.auth().currentUser.uid;
-   console.log(firebase.auth().currentUser);
-   var recentPostsRef = firebase.database().ref('posts/Movie/'+this.sharedService.sharedvalue.category+'/'+id);
-   console.log(recentPostsRef)
-   this.LikethePost(recentPostsRef,uid)
+ like(id)
+{ 
+    
+   if(firebase.auth().currentUser!=null)
+   {
+    var uid = firebase.auth().currentUser.uid;
+    var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
+    this.sharedService.LikethePost(recentPostsRef,uid);  
+   }
+   else
+   {
+     this.router.navigate(['login']);
+   }
 }
+
+
   StartDatabaseQueries(category) {
   // [START my_top_posts_query]
   // var myUserId = firebase.auth().currentUser.uid;
@@ -92,12 +99,16 @@ like(id)
   this.sharedService.sharedvalue.category=category;
   self.upcomingmovies=[];
   
-  var recentPostsRef = firebase.database().ref('posts/Movie/'+category).limitToLast(100);
+  var recentPostsRef = firebase.database().ref('posts/Movie/'+category).limitToLast(10);
+  console.log(recentPostsRef);
   var fetchPosts = function(postsRef) {
-  postsRef.on('child_added', function(data) {  
+    console.log("keri")
+  postsRef.on('child_added', function(data) {
+    console.log("kitty")
  var obj=data.val();
  obj.id=data.key; 
  self.upcomingmovies.push(obj);
+ console.log(obj)
      
     });
     postsRef.on('child_changed', function(data) {	

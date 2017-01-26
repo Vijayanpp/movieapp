@@ -23,6 +23,7 @@ export const appRoutes: Routes = [
      {path:'musicvideos',component:MusicvideosComponent },
      {path:'offers',component:OffersComponent},
      {path:'aboutus',component:AboutusComponent},
-     {path:'contactus',component:ContactusComponent}
+     {path:'contactus',component:ContactusComponent},
+      {path:'contactus',component:LoginComponent}
     
 ];

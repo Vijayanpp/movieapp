@@ -19,9 +19,17 @@
   
   
   <div class="mdl-card__menu">
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="shareThePost()">
-         <i class="material-icons">share</i>
-         </button>
+    <div (click)='share()'>share</div>
+        <button id="share-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons">share</i>
+      </button>
+      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+         for="share-menu-lower-right">
+         <li class="mdl-menu__item">facebook</li>
+         <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"> Bollywood</li>
+         <li class="mdl-menu__item">Kollywood</li>
+         <li class="mdl-menu__item">Mollywood</li>
+      </ul>
          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored "   (click)="like(musicvideos.id)" >
          <i class="material-icons"  >favorite_border</i>
          </button>

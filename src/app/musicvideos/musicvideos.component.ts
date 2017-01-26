@@ -49,13 +49,18 @@ checkAuthState()
  
 
 like(id)
-{
- 
-   var uid = firebase.auth().currentUser.uid;
-   console.log(firebase.auth().currentUser);
-   var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
-   console.log(recentPostsRef)
-   this.sharedService.LikethePost(recentPostsRef,uid)
+{ 
+    
+   if(firebase.auth().currentUser!=null)
+   {
+    var uid = firebase.auth().currentUser.uid;
+    var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
+    this.sharedService.LikethePost(recentPostsRef,uid);  
+   }
+   else
+   {
+     this.router.navigate(['login']);
+   }
 }
   StartDatabaseQueries(category) {
   // [START my_top_posts_query]

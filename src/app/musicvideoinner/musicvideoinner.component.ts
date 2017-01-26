@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
-import { SharedService} from '../sharedservice.service'
+import { SharedService} from '../sharedservice.service';
 import * as Firebase from 'firebase';
+declare var FB;
 @Component({
   selector: 'app-musicvideoinner',
   templateUrl: './musicvideoinner.component.html',
@@ -13,7 +14,7 @@ export class MusicvideoinnerComponent implements OnInit {
   public musicvideos;
   public videourl;
   public starsid;
-  constructor(private router: ActivatedRoute, private sanitizer: DomSanitizer,private sharedService:SharedService) {
+  constructor(private router: ActivatedRoute, private sanitizer: DomSanitizer,private sharedService:SharedService,private routernav:Router) {
   
    }
 
@@ -43,9 +44,31 @@ export class MusicvideoinnerComponent implements OnInit {
 
   like(id)
 { 
-   var uid = firebase.auth().currentUser.uid;
+    
+   if(firebase.auth().currentUser!=null)
+   {
+    var uid = firebase.auth().currentUser.uid;
     var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
-    this.sharedService.LikethePost(recentPostsRef,uid);   
+    this.sharedService.LikethePost(recentPostsRef,uid);  
+   }
+   else
+   {
+     this.routernav.navigate(['login']);
+   }
+}
+
+share()
+  {
+    console.log('sharex');
+      FB.ui({
+   app_id:'568461570013753',
+    method: 'share',
+    
+    display: 'popup',
+    href: 'http://www.adbcd.com',
+  }, function(response){
+    console.log(response.error_message)
+  });
 }
 
 }
