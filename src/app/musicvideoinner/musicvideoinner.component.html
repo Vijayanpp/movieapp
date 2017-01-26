@@ -1,0 +1,66 @@
+<div class='sidebar mdl-cell mdl-cell--2-col'>
+   <div class='img-content' *ngIf="musicvideos">
+      <img src="{{musicvideos.imagepath}}"/>
+   </div>
+   <div class='review'>
+      <div class='circle'>
+         <span class='number'>8.3</span>
+      </div>
+   </div>
+</div>
+
+<div class="mdl-grid portfolio-max-width" *ngIf="musicvideos">
+  
+   <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp img-content" [innerHTML]="videourl">
+      
+   </div>
+</div>
+<div class="md1-grid portfolio-max-width" *ngIf="musicvideos" >
+  
+  
+  <div class="mdl-card__menu">
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="shareThePost()">
+         <i class="material-icons">share</i>
+         </button>
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored "   (click)="like(musicvideos.id)" >
+         <i class="material-icons"  >favorite_border</i>
+         </button>
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+         <i class="material-icons">comment</i>
+         </button>
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+         <i class="material-icons">add</i>
+         </button>
+
+         <div class='watch-view-count'>
+        
+         </div>
+    
+  </div>
+
+<div class="full-width " *ngIf="musicvideos">
+      <h1 class='max-top'>{{musicvideos.songtitle}} | {{musicvideos.title}} </h1>
+      <div [innerHTML]="musicvideos.overview" ></div>
+   </div>
+
+</div>
+
+
+<script>
+shareThePost()
+{
+    console.log('kkk');
+  var dialog = document.querySelector('dialog');
+  if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    
+      dialog.showModal();
+    
+
+}
+  </script>
+
+   
+   
+   

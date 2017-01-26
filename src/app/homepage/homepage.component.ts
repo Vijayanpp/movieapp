@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService} from '../sharedservice.service'
+import { SharedService} from '../sharedservice.service';
 import { ActivatedRoute,Router } from '@angular/router';
 import * as Firebase from 'firebase';
+declare var FB:any;
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  public photo:string="../assets/images/munthiri.jpg";
-
-public signin:boolean;
+ public signin:boolean;
 public upcomingmovies=[];
+public sarsstatus:boolean=false;
   constructor(private sharedService:SharedService,private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -19,10 +19,11 @@ public upcomingmovies=[];
   //   username:'adbcd',
   //   email:'adbcdstaff@gmail.com'    
   // });
-   this.StartDatabaseQueries();
+   this.StartDatabaseQueries(this.sharedService.sharedvalue.category);
   
   	
   }
+  
   ngDoCheck()
   {
   	this.signin=this.sharedService.sharedvalue.signin;
@@ -36,7 +37,7 @@ checkAuthState()
     firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
  
-    self.StartDatabaseQueries();
+    self.StartDatabaseQueries(this.sharedService.sharedvalue.category);
 
   } else {
     
@@ -80,27 +81,24 @@ like(id)
  
    var uid = firebase.auth().currentUser.uid;
    console.log(firebase.auth().currentUser);
-   var recentPostsRef = firebase.database().ref('posts/Movie/Mollywood/'+id);
+   var recentPostsRef = firebase.database().ref('posts/Movie/'+this.sharedService.sharedvalue.category+'/'+id);
    console.log(recentPostsRef)
    this.LikethePost(recentPostsRef,uid)
 }
-  StartDatabaseQueries() {
+  StartDatabaseQueries(category) {
   // [START my_top_posts_query]
   // var myUserId = firebase.auth().currentUser.uid;
   var self=this;
+  this.sharedService.sharedvalue.category=category;
+  self.upcomingmovies=[];
   
-  var recentPostsRef = firebase.database().ref('posts/Movie/Mollywood').limitToLast(100);
-  
-
- 
+  var recentPostsRef = firebase.database().ref('posts/Movie/'+category).limitToLast(100);
   var fetchPosts = function(postsRef) {
- postsRef.on('child_added', function(data) {
-  
+  postsRef.on('child_added', function(data) {  
  var obj=data.val();
-
- obj.id=data.key;
+ obj.id=data.key; 
  self.upcomingmovies.push(obj);
-     // self.titleData=data.val().title || 'Anonymous';          
+     
     });
     postsRef.on('child_changed', function(data) {	
   var object=data.val();
@@ -132,5 +130,24 @@ like(id)
   // this.listeningFirebaseRefs.push(userPostsRef);
 }
 
+setCurrentCategory(category:string)
+{
+  this.sharedService.sharedvalue.category=category;
+  console.log(category);
+}
+adbcd(category:string)
+{
+this.StartDatabaseQueries(category);
+console.log('kkk')
+}
+share()
+  {
+    console.log('share');
+      FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://developers.facebook.com/docs/',
+  }, function(response){});
+}
 
 }

@@ -554,3 +554,101 @@ box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.14);
 color:#fd0000;
 background:#fff;
 }
+
+
+.adbcd-card-square.mdl-card {
+   width:100%;
+  min-height: 320px;
+}
+
+.adbcd-card-square > .mdl-card__title {
+  color: #fff;
+  height:200px
+
+  
+}
+
+a {
+    color: rgb(154, 154, 154);
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 10px;
+    transition:all 0.2s easing;
+}
+a:hover
+{
+color:#000;
+}
+
+.demo-navigation {
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.mdl-badge[data-badge]:after {
+    
+    background: rgb(119, 193, 89)!important;
+    color: rgb(255, 255, 255)!important;
+}
+.ion {
+    background: #eee;
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.7s ease-in-out;
+    cursor: pointer;
+    margin-right:10px
+}
+.padding span
+{
+    margin-right:20px;
+    position: relative;
+    top: -7px;
+}
+.padding
+{
+    padding:10px;
+}
+.mdl-card__supporting-text h1
+{
+    font-size:21px!important;
+    color:#000;
+    font-weight:bold!important
+}
+
+.share {
+    border-radius: 50%;
+    font-size: 24px;
+    height: 32px;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 32px;
+    width: 32px;
+    padding: 0;
+    overflow: hidden;
+    color: inherit;
+    line-height: normal;
+    background: #fff;
+    padding: 24px;
+}
+
+
+.adbcd-layout .adbcd-navigation .mdl-navigation__link {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+}
+
+.adbcd-navigation .mdl-navigation__link .material-icons {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.56);
+    margin-right: 32px;
+}

@@ -19,6 +19,8 @@ import { OffersComponent } from './offers/offers.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { NewspageComponent } from './newspage/newspage.component';
+import { AddmuiscdataComponent } from './addmuiscdata/addmuiscdata.component';
+import { MusicvideoinnerComponent } from './musicvideoinner/musicvideoinner.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { NewspageComponent } from './newspage/newspage.component';
     OffersComponent,
     AboutusComponent,
     ContactusComponent,
-    NewspageComponent
+    NewspageComponent,
+    AddmuiscdataComponent,
+    MusicvideoinnerComponent
   ],
   imports: [
    BrowserModule,

@@ -203,6 +203,10 @@ p
   -o-transition:all 0.5s;
 }
 
+.red
+{
+    color:#fd0000;
+}
 
 .portfolio-max-width {
     max-width: 1024px;
@@ -215,4 +219,26 @@ p
 .mdl-grid {
     padding: 8px;
 }
+}
+
+.max-top
+{
+    margin-top:80px;
+}
+
+
+.watch-view-count {
+    line-height: 24px;
+    max-height: 24px;
+    text-align: right;
+    font-size: 19px;
+    color: #666;
+    white-space: nowrap;
+    margin-bottom: 2px;
+}
+#watch7-views-info {
+    position: absolute;
+    bottom: 33px;
+    right: 0;
+    min-width: 160px;
 }

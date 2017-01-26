@@ -40,6 +40,7 @@ export class AddpostsampleComponent implements OnInit {
     private titleData;
     private releasedate;
     private category;
+    private songtitle
 
   constructor(private fb: FormBuilder) { }
 
@@ -75,7 +76,8 @@ export class AddpostsampleComponent implements OnInit {
         overview: [this.overview, [Validators.required, Validators.minLength(5)]],
         rating: [this.rating, [Validators.required, Validators.minLength(5)]],
         releasedate: [this.releasedate, [Validators.required, Validators.minLength(5)]],
-        category: [this.category, [Validators.required, Validators.minLength(5)]]
+        category: [this.category, [Validators.required, Validators.minLength(5)]],
+        songtitle: [this.songtitle, [Validators.required, Validators.minLength(5)]]
         
        
       
@@ -173,7 +175,7 @@ else
 
 }
 
- writeNewMovieData(username,uid,posttype,postindustry,title,imagepath,releasedate,category,hero,heroImg,heroine,heroineImg,director,musicdirector,editor,camera,distribution,productioncompany,overview,screenplay,rating,actors,trailers,musicvideos)
+ writeNewMovieData(username,uid,posttype,postindustry,title,imagepath,releasedate,category,hero,heroImg,heroine,heroineImg,director,musicdirector,editor,camera,distribution,productioncompany,overview,screenplay,rating,actors,trailers,musicvideos,songtitle)
 {
   var postData = {
     author: username,
@@ -181,6 +183,7 @@ else
     imagepath:imagepath,
     title: title,
     starCount: 0,
+    views:0,
     comment:0,
     releasedate:releasedate,
     category:category,
@@ -201,7 +204,8 @@ else
     overview:overview,
     actors:actors,
     trailers:trailers,
-    musicvideos:musicvideos
+    musicvideos:musicvideos,
+    songtitle:songtitle
   };
 
   // Get a key for a new Post.
@@ -235,12 +239,12 @@ submitPost(model) {
     var distribution=model.value.distribution;
     var releasedate=model.value.releasedate;
     var category=model.value.category;
-   
+   var songtitle=model.value.songtitle
    console.log("posin started")
   if (title &&img) {   
   var userId = firebase.auth().currentUser.uid;
   var username="admin"
-  this.writeNewMovieData(username,userId,posttype,postindustry,title,img,releasedate,category,hero,heroImg,heroine,heroineImg,director,musicdirector,editor,camera,distribution,productioncompany,overview,screenplay,rating,actors,trailers,musicvideos);
+  this.writeNewMovieData(username,userId,posttype,postindustry,title,img,releasedate,category,hero,heroImg,heroine,heroineImg,director,musicdirector,editor,camera,distribution,productioncompany,overview,screenplay,rating,actors,trailers,musicvideos,songtitle);
   }
   };
 

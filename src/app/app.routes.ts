@@ -10,11 +10,13 @@ import { MusicvideosComponent } from './musicvideos/musicvideos.component';
 import { OffersComponent } from './offers/offers.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { MusicvideoinnerComponent } from './musicvideoinner/musicvideoinner.component';
 export const appRoutes: Routes = [
      {path:'',component:HomepageComponent},
      {path:'login',component:LoginComponent},
      {path:'addmoviedata',component:AddpostsampleComponent},
      {path:'detail/:id',component:InnerpageComponent},
+     {path:'musicvideos/detail/:id',component:MusicvideoinnerComponent},
      {path:'runningintheater',component:NowrunningComponent},
      {path:'reviews',component:ReviewsComponent },
      {path:'trailers',component:TrailersComponent },
