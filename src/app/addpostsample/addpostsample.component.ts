@@ -183,6 +183,7 @@ else
     imagepath:imagepath,
     title: title,
     starCount: 0,
+    ratingCount:1,
     views:0,
     comment:0,
     releasedate:releasedate,

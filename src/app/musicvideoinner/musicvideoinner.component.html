@@ -2,9 +2,9 @@
    <div class='img-content' *ngIf="musicvideos">
       <img src="{{musicvideos.imagepath}}"/>
    </div>
-   <div class='review'>
+   <div class='review' *ngIf="musicvideos">
       <div class='circle'>
-         <span class='number'>8.3</span>
+         <span class='number'>{{musicvideos.rating}}</span>
       </div>
    </div>
 </div>
@@ -19,22 +19,16 @@
   
   
   <div class="mdl-card__menu">
-    <div (click)='share()'>share</div>
-        <button id="share-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-      <i class="material-icons">share</i>
+    
+        <button (click)="shareThisPost()" class="mdl-button mdl-js-button mdl-button--icon mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+      <i class="material-icons" >share</i>
       </button>
-      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
-         for="share-menu-lower-right">
-         <li class="mdl-menu__item">facebook</li>
-         <li class="mdl-menu__item mdl-menu__item--full-bleed-divider"> Bollywood</li>
-         <li class="mdl-menu__item">Kollywood</li>
-         <li class="mdl-menu__item">Mollywood</li>
-      </ul>
+     
          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored "   (click)="like(musicvideos.id)" >
          <i class="material-icons"  >favorite_border</i>
          </button>
-         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-         <i class="material-icons">comment</i>
+         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="rateThisPost()">
+         <i class="material-icons" >star</i>
          </button>
          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
          <i class="material-icons">add</i>
@@ -54,21 +48,68 @@
 </div>
 
 
-<script>
-shareThePost()
-{
-    console.log('kkk');
-  var dialog = document.querySelector('dialog');
-  if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
-    
-      dialog.showModal();
-    
+<app-dialogue *ngIf='share&&musicvideos'>
+  <div class="modal-header">
+        <h5 class="adbcd-modal-title" id="exampleModalLiveLabel">Share On</h5>
+        <button type="button" class="close" (click)="closeShare()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+  <div class="modal-body">
+      <a href="https://plus.google.com/share?url={URL}" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><img src="assets/images/google.png"  alt='google'/></a>
+      <img src="assets/images/facebook-2.png" (click)="shareOnFB()" alt='facebook'/>
+      <a class="twitter-share-button" href="https://twitter.com/intent/tweet"><img src="assets/images/twitter.png" alt='google'/></a></div>
+      <div class="modal-footer">
+        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="closeShare()" data-dismiss="modal">Close</button>
+        
+      </div>
 
-}
-  </script>
+</app-dialogue>
 
-   
-   
+<app-dialogue *ngIf='rate&&musicvideos'>
+  <div class="modal-header">
+        <h5 class="adbcd-modal-title" id="exampleModalLiveLabel">Rate this</h5>
+        <button type="button" class="close" (click)="closeRate()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+  <div class="modal-body">
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,1,musicvideos.id)">
+  1
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,2,musicvideos.id)">
+  2
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,3,musicvideos.id)">
+  3
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,4,musicvideos.id)">
+  4
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,5,musicvideos.id)">
+  5
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,6,musicvideos.id)">
+  6
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,7,musicvideos.id)">
+  7
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,8,musicvideos.id)">
+  8
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" (click)="Rate(musicvideos.ratingCount,musicvideos.rating,9,musicvideos.id)">
+  9
+  </button>
+  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"  (click)="Rate(musicvideos.ratingCount,musicvideos.rating,10,musicvideos.id)">
+  10
+  </button>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="closeRate()" data-dismiss="modal">Close</button>        
+        
+      </div>
+
+</app-dialogue>
    

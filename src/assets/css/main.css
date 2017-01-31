@@ -652,3 +652,8 @@ color:#000;
     color: rgba(255, 255, 255, 0.56);
     margin-right: 32px;
 }
+
+.mdl-button--raised.mdl-button--colored {
+    background: rgb(92, 141, 49);
+    color: rgb(255,255,255);
+}

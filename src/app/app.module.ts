@@ -21,6 +21,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { NewspageComponent } from './newspage/newspage.component';
 import { AddmuiscdataComponent } from './addmuiscdata/addmuiscdata.component';
 import { MusicvideoinnerComponent } from './musicvideoinner/musicvideoinner.component';
+import { DialogueComponent } from './dialogue/dialogue.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MusicvideoinnerComponent } from './musicvideoinner/musicvideoinner.comp
     ContactusComponent,
     NewspageComponent,
     AddmuiscdataComponent,
-    MusicvideoinnerComponent
+    MusicvideoinnerComponent,
+    DialogueComponent
   ],
   imports: [
    BrowserModule,

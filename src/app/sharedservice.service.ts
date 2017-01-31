@@ -13,6 +13,38 @@ export class SharedService {
    post.views++;
     })
   }
+  RatethePost(postRef,count,currentRating,newRating,uid)
+  {
+     postRef.transaction(function(post) {
+       
+      if(post)
+      {
+      if(post.ratingsByUser&&post.ratingsByUser[uid])
+      {
+  
+  let newcount=parseInt(count)
+  let rating=(currentRating- post.ratingsByUser[uid]['rating']+newRating)/newcount;
+  post.rating=rating.toFixed(2);
+   post.ratingsByUser[uid]['rating']=post.rating;
+      }
+      else
+      {
+  
+  let newcount=parseInt(count)+1;
+  let rating=(currentRating+newRating)/newcount;
+  post.rating=rating.toFixed(2);
+  if (!post.ratingsByUser) {
+          post.ratingsByUser = {};
+        }
+        post.ratingsByUser[uid] ={};
+        post.ratingsByUser[uid]['rating']=post.rating;
+
+      }
+      }
+      return post;
+     })
+     
+  }
 
 LikethePost(postRef, uid) {
   

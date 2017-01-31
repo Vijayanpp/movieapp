@@ -14,6 +14,8 @@ export class MusicvideoinnerComponent implements OnInit {
   public musicvideos;
   public videourl;
   public starsid;
+  public share:boolean=false;
+   public rate:boolean=false;
   constructor(private router: ActivatedRoute, private sanitizer: DomSanitizer,private sharedService:SharedService,private routernav:Router) {
   
    }
@@ -56,8 +58,33 @@ export class MusicvideoinnerComponent implements OnInit {
      this.routernav.navigate(['login']);
    }
 }
+shareThisPost()
+{
+  this.share=true;
+}
+rateThisPost()
+{
 
-share()
+  this.rate=true;
+}
+Rate(count,currentRating,newRating,id)
+{
+  console.log('kkk')
+  
+  var uid = firebase.auth().currentUser.uid;
+  console.log(uid)
+   var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
+  this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid); 
+}
+closeShare()
+{
+  this.share=false;
+}
+closeRate()
+{
+  this.rate=false;
+}
+shareOnFB()
   {
     console.log('sharex');
       FB.ui({
