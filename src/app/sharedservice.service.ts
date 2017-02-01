@@ -21,23 +21,35 @@ export class SharedService {
       {
       if(post.ratingsByUser&&post.ratingsByUser[uid])
       {
+   
   
-  let newcount=parseInt(count)
-  let rating=(currentRating- post.ratingsByUser[uid]['rating']+newRating)/newcount;
-  post.rating=rating.toFixed(2);
-   post.ratingsByUser[uid]['rating']=post.rating;
+  let newcount=parseInt(count); 
+  let adbcd=post.ratingsByUser[uid]['rating'];  
+  let rating=(post.totalRating-adbcd+newRating)/newcount;
+  post.rating=rating.toFixed(2); 
+   post.ratingsByUser[uid]['rating']=newRating;
       }
       else
-      {
+      {        
   
   let newcount=parseInt(count)+1;
-  let rating=(currentRating+newRating)/newcount;
+  var d=(newRating-currentRating)/newcount
+  let rating=currentRating+d;
   post.rating=rating.toFixed(2);
+  post.ratingCount++;
+  if (!post.totalRating)
+  {
+  post.totalRating=newRating+rating; 
+  }
+  else
+   {     
+    post.totalRating=post.totalRating+newRating;
+   }
   if (!post.ratingsByUser) {
           post.ratingsByUser = {};
         }
         post.ratingsByUser[uid] ={};
-        post.ratingsByUser[uid]['rating']=post.rating;
+        post.ratingsByUser[uid]['rating']=newRating
 
       }
       }

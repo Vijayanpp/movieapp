@@ -69,11 +69,9 @@ rateThisPost()
 }
 Rate(count,currentRating,newRating,id)
 {
-  console.log('kkk')
-  
+    
   var uid = firebase.auth().currentUser.uid;
-  console.log(uid)
-   var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
+  var recentPostsRef = firebase.database().ref('posts/Music/'+this.sharedService.sharedvalue.category+'/'+id);
   this.sharedService.RatethePost(recentPostsRef,count,currentRating,newRating,uid); 
 }
 closeShare()
