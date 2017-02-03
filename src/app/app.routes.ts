@@ -11,6 +11,8 @@ import { OffersComponent } from './offers/offers.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { MusicvideoinnerComponent } from './musicvideoinner/musicvideoinner.component';
+import { NewspageComponent } from './newspage/newspage.component';
+
 export const appRoutes: Routes = [
      {path:'',component:HomepageComponent},
      {path:'login',component:LoginComponent},
@@ -24,6 +26,7 @@ export const appRoutes: Routes = [
      {path:'offers',component:OffersComponent},
      {path:'aboutus',component:AboutusComponent},
      {path:'contactus',component:ContactusComponent},
-      {path:'contactus',component:LoginComponent}
+      {path:'contactus',component:LoginComponent},
+      {path:'news',component:NewspageComponent}
     
 ];

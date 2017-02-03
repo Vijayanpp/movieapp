@@ -1,10 +1,13 @@
+import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
+import { Http,Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SharedService {
 
   public sharedvalue={signin:false,currentUser:null,category:"Mollywood",type:"Movie"}
-  constructor() { }
+  constructor(private http:Http) { }
 
   updatetheViewCount(postref)
   {
@@ -86,6 +89,22 @@ LikethePost(postRef, uid) {
     return post;
   });
 }
+
+  private API_PATH: string ='/mainnews';
+
+   searchNews(api): Observable<any> {
+    return this.http.get(api)
+      .map(res => res.json());
+  }
+
+  retrieveOffer(volumeId: string): Observable<any> {
+    return this.http.get(`${this.API_PATH}/${volumeId}`)
+      .map(res => res.json());
+  }
+
+
+
+
 }
 
 
